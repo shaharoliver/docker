@@ -1,4 +1,5 @@
 FROM snirnx/docker-maven:latest
+ENV MAVEN_OPTS "-Dmaven.repo.local=/.m2/repository"
 RUN apk -v --update add \
         python \
         py-pip \
@@ -11,4 +12,5 @@ RUN apk -v --update add \
     rm /var/cache/apk/*
 VOLUME /root/.aws
 VOLUME /project
+VOLUME /.m2
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
