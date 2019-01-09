@@ -1,5 +1,4 @@
 FROM snirnx/docker-maven:latest
-ENV MAVEN_OPTS "-Dmaven.repo.local=/.m2/repository"
 RUN apk -v --update add \
         python \
         py-pip \
