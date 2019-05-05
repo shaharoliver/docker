@@ -1,11 +1,12 @@
-FROM node:8.4.0
+FROM node:8
 
-RUN apt-get update
+RUN apt-get update && apt-get install -y \
+    python-dev \
+    zip \
+    jq
+RUN curl -O https://bootstrap.pypa.io/get-pip.py
 
-RUN apt-get install python-dev python-pip -y
-
-RUN easy_install --upgrade six
-
+RUN python get-pip.py
 RUN pip install awscli
 
-CMD ["/bin/bash"]
+CMD ["node"]
