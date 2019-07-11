@@ -9,7 +9,7 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 RUN apk --no-cache add openjdk11 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 
-RUN apk add --no-cache curl tar bash procps git python2 py-pip
+RUN apk add --no-cache curl tar bash procps git python2 pip
 
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
@@ -21,8 +21,8 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 RUN pip install docker-compose~=1.23.0
 
 COPY . /usr/local/bin/
-
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY ./docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
