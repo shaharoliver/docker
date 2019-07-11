@@ -18,7 +18,7 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && rm -f /tmp/apache-maven.tar.gz \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
-RUN pip install docker-compose
+RUN pip install docker-compose~=1.23.0
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
