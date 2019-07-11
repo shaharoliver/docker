@@ -20,6 +20,8 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 
 RUN pip install docker-compose~=1.23.0
 
+COPY . /usr/local/bin/
+
 COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
